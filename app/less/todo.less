@@ -4,7 +4,6 @@
 	position: relative;
 	font-size: 16px;
 	width: 320px;
-	height: 320px;
 	background: @bgcolor;
 
 	header {
@@ -21,11 +20,11 @@
 			border-top-right-radius: 4px;
 		}
 	}
-}
-
-select {
-	margin: 0;
-	float: right;
+	
+	footer {
+		position: absolute;
+		bottom: 0;
+	}
 }
 
 ul {
@@ -38,10 +37,28 @@ li {
 	border-bottom: 1px dotted #999;
 	margin-left: 38px;
 	line-height: 20px;
+	
+	&.done {
+		text-decoration: line-through;
+		opacity: 0.5;
+	}
+}
+
+select, option, input, button {
+	-webkit-appearance: initial;
+	.webfontGeneva;
+	
+	font-size: inherit;
+}
+
+select {
+	border: none;
+	text-align: right;
+	margin: 0;
+	float: right;
 }
 
 input[type="checkbox"] {
-	-webkit-appearance: initial;
 	box-sizing: border-box;
 	display: inline-block;
 	vertical-align: text-top;
@@ -53,8 +70,6 @@ input[type="checkbox"] {
 	margin-right: 19px;
 
 	&:checked::after {
-		.webfontGeneva;
-		
 		content: "√";
 		font-size: 20px;
 		position: relative;
@@ -62,20 +77,7 @@ input[type="checkbox"] {
 	}
 }
 
-
-li.done {
-	text-decoration: line-through;
-	opacity: 0.5;
-}
-
-.todolist footer {
-	position: absolute;
-	bottom: 0;
-}
-
 button {
-	.webfontGeneva;
-	
 	border: 2px solid #000;
 	border-radius: 4px;
 	background: #fff;
