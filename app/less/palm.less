@@ -2,5 +2,22 @@
 @import "todo";
 
 body {
-	background: #ccc;
+	background: @bgcolor;
+	padding: 0;
+	margin: 0;
+}
+
+.todolist {
+	margin-top: 10px;
+}
+
+@media screen and (min-width: 321px) {
+	body {
+		background: #ccc;
+	}
+	
+	.todolist {
+		margin: 1em auto;
+		border: 1px solid #000;
+	}
 }
