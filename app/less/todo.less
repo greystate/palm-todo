@@ -1,0 +1,88 @@
+.todolist {
+	.webfontGeneva;
+	
+	position: relative;
+	font-size: 16px;
+	margin: 1em auto;
+	width: 320px;
+	height: 320px;
+	background: @bgcolor;
+	border: 1px solid #000;
+
+	header {
+		border-bottom: 2px solid @color_primary;
+
+		h1 {
+			display: inline-block;
+			font-size: 18px;
+			background: #331396;
+			color: #fff;
+			margin: 0;
+			padding: 0 4px;
+			border-top-left-radius: 4px;
+			border-top-right-radius: 4px;
+		}
+	}
+}
+
+select {
+	margin: 0;
+	float: right;
+}
+
+ul {
+	padding: 6px 3px 3px;
+	margin: 0;
+	list-style: none;
+}
+
+li {
+	border-bottom: 1px dotted #999;
+	margin-left: 38px;
+	line-height: 20px;
+}
+
+input[type="checkbox"] {
+	-webkit-appearance: initial;
+	box-sizing: border-box;
+	display: inline-block;
+	vertical-align: text-top;
+	width: 16px;
+	height: 16px;
+	border: 2px solid #000;
+	margin-left: -38px;
+	margin-right: 19px;
+
+	&:checked::after {
+		.webfontGeneva;
+		
+		content: "√";
+		font-size: 20px;
+		position: relative;
+		top: -9px;
+	}
+}
+
+
+li.done {
+	text-decoration: line-through;
+	opacity: 0.5;
+}
+
+.todolist footer {
+	position: absolute;
+	bottom: 0;
+}
+
+button {
+	.webfontGeneva;
+	
+	border: 2px solid #000;
+	border-radius: 4px;
+	background: #fff;
+	font-size: inherit;
+	
+	&:hover {
+		background: #eee;
+	}
+}
