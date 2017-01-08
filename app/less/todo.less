@@ -37,11 +37,6 @@ li {
 	border-bottom: 1px dotted #999;
 	margin-left: 38px;
 	line-height: 20px;
-	
-	&.done {
-		text-decoration: line-through;
-		opacity: 0.5;
-	}
 }
 
 select, option, input, button {
@@ -78,11 +73,20 @@ input[type="checkbox"] {
 	margin-left: -38px;
 	margin-right: 19px;
 
-	&:checked::after {
-		content: "√";
-		font-size: 20px;
-		position: relative;
-		top: -9px;
+	&:checked {
+		opacity: 0.3;
+
+		&::after {
+			content: "√";
+			font-size: 20px;
+			position: relative;
+			top: -9px;
+		}
+		
+		& + label {
+			opacity: 0.3;
+			text-decoration: line-through;
+		}
 	}
 }
 
