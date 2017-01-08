@@ -51,11 +51,20 @@ select, option, input, button {
 	font-size: inherit;
 }
 
+.category {
+	position: relative;
+	float: right;
+	
+	&::before {
+		content: "▾";
+		margin-right: 0.2em;
+	}
+}
+
 select {
 	border: none;
 	text-align: right;
 	margin: 0;
-	float: right;
 }
 
 input[type="checkbox"] {
