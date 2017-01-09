@@ -9,6 +9,26 @@
 	],
 "creatorBuild": "25479",
 "files": {
+	"\/app\/coffee\/helpers.coffee": {
+		"ft": 32,
+		"ma": 0,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/public\/helpers.js",
+		"oF": 0,
+		"oS": 0,
+		"sC": 0
+		},
+	"\/app\/coffee\/palm-app.coffee": {
+		"ft": 32,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "\/public\/palm-app.js",
+		"oF": 0,
+		"oS": 0,
+		"sC": 0
+		},
 	"\/app\/less\/constants.less": {
 		"aP": 1,
 		"bl": 1,
@@ -1815,7 +1835,7 @@
 		"autoOutputPathReplace2": "",
 		"autoOutputPathStyle": 1,
 		"createSourceMap": 0,
-		"minifyOutput": 1,
+		"minifyOutput": 0,
 		"outputStyle": 0,
 		"syntaxCheckerStyle": 0
 		},
