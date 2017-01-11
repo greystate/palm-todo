@@ -50,8 +50,8 @@
   randomSentence = function() {
     var CONNECTORS, NOUNS, VERBS, sentence, title;
     VERBS = ["start", "stop", "play", "build", "find", "test", "save"];
+    CONNECTORS = ["a", "that", "behind the", "the"];
     NOUNS = ["elephant", "lamp", "cassowary", "table", "mug", "keyboard", "clock tower"];
-    CONNECTORS = ["a", "the", "that", "behind the"];
     title = [randomItem(VERBS), randomItem(CONNECTORS), randomItem(NOUNS)].join(" ");
     title = title.replace(/a e/, "an e");
     return sentence = "" + ((title.charAt(0)).toUpperCase()) + (title.substr(1));

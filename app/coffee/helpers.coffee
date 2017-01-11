@@ -43,8 +43,8 @@ randomItem = (array) ->
 # Returns a sentence constructed from a verb and a noun, connected by a "connector" (like "a" or "the").
 randomSentence = () ->
 	VERBS = ["start", "stop", "play", "build", "find", "test", "save"]
+	CONNECTORS = ["a", "that", "behind the", "the"]
 	NOUNS = ["elephant", "lamp", "cassowary", "table", "mug", "keyboard", "clock tower"]
-	CONNECTORS = ["a", "the", "that", "behind the"]
 
 	title = [
 		randomItem(VERBS)
