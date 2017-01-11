@@ -6,9 +6,7 @@ KEY_RETURN = 13
 # Main controller for the page's functions
 class ZireController
 	constructor: () ->
-		@builder = new FixtureBuilder
 		@todos = new TodoList
-		@todos.items = @builder.randomList 4
 		@todos.render $ '#todos'
 		
 		@setupHandlers()
@@ -16,6 +14,8 @@ class ZireController
 	setupHandlers: () =>
 		$on ($ '#new-task'), "click", @addNewTask
 		$on ($ 'body'), "keyup", @handleKeyup
+		$on	($ '#clear'), "click", @clearList
+		$on	($ '#randomize'), "click", @randomizeList
 	
 	handleKeyup: (event) =>
 		if event.keyCode is KEY_RETURN
@@ -30,6 +30,17 @@ class ZireController
 		$label = $ "#todo-#{task.id} label"
 		selectContentEditable $label
 
+	
+	clearList: =>
+		@todos.items = []
+		@todos.changed()
+		
+	randomizeList: =>
+		builder = new FixtureBuilder
+		@todos.items = builder.randomList 4
+		@todos.changed()
+		
+	
 # Start everything when the page is ready
 $on window, "DOMContentLoaded", ->
 	app.controller = new ZireController
