@@ -61,7 +61,9 @@
     function FixtureBuilder() {}
 
     FixtureBuilder.prototype.randomTask = function() {
-      return new Task(randomSentence());
+      return new Task({
+        title: randomSentence()
+      });
     };
 
     FixtureBuilder.prototype.randomList = function(count) {
@@ -80,41 +82,6 @@
     return FixtureBuilder;
 
   })();
-
-  Task = (function() {
-    function Task(title1, priority, category, done) {
-      this.title = title1 != null ? title1 : "New Todo";
-      this.priority = priority != null ? priority : 1;
-      this.category = category != null ? category : TodoList.DEFAULT_CATEGORY;
-      this.done = done != null ? done : false;
-      this.id = randomInteger(9999);
-    }
-
-    Task.prototype.toggle = function() {
-      return this.done = !this.done;
-    };
-
-    Task.prototype.render = function() {
-      var checkbox, element, label;
-      element = document.createElement("li");
-      element.id = "todo-" + this.id;
-      checkbox = document.createElement("input");
-      checkbox.setAttribute("type", "checkbox");
-      checkbox.className = "priority-" + this.priority;
-      checkbox.checked = this.done;
-      label = document.createElement("label");
-      label.textContent = this.title;
-      label.contentEditable = true;
-      element.appendChild(checkbox);
-      element.appendChild(label);
-      return element;
-    };
-
-    return Task;
-
-  })();
-
-  window.Task = Task;
 
   TodoList = (function() {
     TodoList.DEFAULT_CATEGORY = "Unspecified";
@@ -167,31 +134,82 @@
 
   window.TodoList = TodoList;
 
+  Task = (function() {
+    var DEFAULT_OPTIONS;
+
+    DEFAULT_OPTIONS = {
+      id: null,
+      title: "New ToDo",
+      priority: 1,
+      category: TodoList.DEFAULT_CATEGORY,
+      done: false
+    };
+
+    function Task(options) {
+      if (options == null) {
+        options = DEFAULT_OPTIONS;
+      }
+      this.id = options.id, this.title = options.title, this.priority = options.priority, this.category = options.category, this.done = options.done;
+      if (options.id === null) {
+        this.id = randomInteger(9999);
+      }
+    }
+
+    Task.prototype.toggle = function() {
+      return this.done = !this.done;
+    };
+
+    Task.prototype.render = function() {
+      var checkbox, element, label;
+      element = document.createElement("li");
+      element.id = "todo-" + this.id;
+      checkbox = document.createElement("input");
+      checkbox.setAttribute("type", "checkbox");
+      checkbox.className = "priority-" + this.priority;
+      checkbox.checked = this.done;
+      label = document.createElement("label");
+      label.textContent = this.title;
+      label.contentEditable = true;
+      element.appendChild(checkbox);
+      element.appendChild(label);
+      return element;
+    };
+
+    return Task;
+
+  })();
+
+  window.Task = Task;
+
   this.app = (ref = window.app) != null ? ref : {};
 
   KEY_RETURN = 13;
 
   ZireController = (function() {
     function ZireController() {
+      this.randomizeList = bind(this.randomizeList, this);
+      this.clearList = bind(this.clearList, this);
       this.addNewTask = bind(this.addNewTask, this);
       this.handleKeyup = bind(this.handleKeyup, this);
       this.setupHandlers = bind(this.setupHandlers, this);
-      this.builder = new FixtureBuilder;
       this.todos = new TodoList;
-      this.todos.items = this.builder.randomList(4);
+      this.loadState();
       this.todos.render($('#todos'));
       this.setupHandlers();
     }
 
     ZireController.prototype.setupHandlers = function() {
       $on($('#new-task'), "click", this.addNewTask);
-      return $on($('body'), "keyup", this.handleKeyup);
+      $on($('body'), "keyup", this.handleKeyup);
+      $on($('#clear'), "click", this.clearList);
+      return $on($('#randomize'), "click", this.randomizeList);
     };
 
     ZireController.prototype.handleKeyup = function(event) {
       if (event.keyCode === KEY_RETURN) {
         if (event.target.nodeName === "BODY" && event.altKey) {
           event.preventDefault();
+          this.saveState();
           return this.addNewTask();
         }
       }
@@ -203,6 +221,35 @@
       this.todos.add(task);
       $label = $("#todo-" + task.id + " label");
       return selectContentEditable($label);
+    };
+
+    ZireController.prototype.saveState = function() {
+      return window.localStorage.setItem("todolist", JSON.stringify(this.todos.items));
+    };
+
+    ZireController.prototype.loadState = function() {
+      var i, items, len, results, task;
+      items = JSON.parse(window.localStorage.getItem("todolist"));
+      if ((items != null) && items.length !== 0) {
+        results = [];
+        for (i = 0, len = items.length; i < len; i++) {
+          task = items[i];
+          results.push(this.todos.add(new Task(task)));
+        }
+        return results;
+      }
+    };
+
+    ZireController.prototype.clearList = function() {
+      this.todos.items = [];
+      return this.todos.changed();
+    };
+
+    ZireController.prototype.randomizeList = function() {
+      var builder;
+      builder = new FixtureBuilder;
+      this.todos.items = builder.randomList(4);
+      return this.todos.changed();
     };
 
     return ZireController;

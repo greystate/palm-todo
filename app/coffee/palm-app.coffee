@@ -7,6 +7,7 @@ KEY_RETURN = 13
 class ZireController
 	constructor: () ->
 		@todos = new TodoList
+		@loadState()
 		@todos.render $ '#todos'
 		
 		@setupHandlers()
@@ -21,6 +22,7 @@ class ZireController
 		if event.keyCode is KEY_RETURN
 			if event.target.nodeName is "BODY" and event.altKey
 				event.preventDefault()
+				@saveState()
 				@addNewTask()
 	
 	addNewTask: =>
@@ -29,7 +31,15 @@ class ZireController
 		
 		$label = $ "#todo-#{task.id} label"
 		selectContentEditable $label
-
+	
+	saveState: ->
+		window.localStorage.setItem "todolist", JSON.stringify @todos.items
+	
+	loadState: ->
+		items = JSON.parse window.localStorage.getItem "todolist"
+		if items? and items.length isnt 0
+			for task in items
+				@todos.add new Task task
 	
 	clearList: =>
 		@todos.items = []

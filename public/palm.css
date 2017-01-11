@@ -33,29 +33,29 @@ li {
   margin-left: 38px;
   line-height: 20px;
 }
-select,
-option,
-input,
-button {
+.todolist select,
+.todolist option,
+.todolist input,
+.todolist button {
   -webkit-appearance: initial;
   font-family: "New Geneva W01 Nine", monospace;
   font-weight: normal;
   font-size: inherit;
 }
-.category {
+.todolist .category {
   position: relative;
   float: right;
 }
-.category::before {
+.todolist .category::before {
   content: "▾";
   margin-right: 0.2em;
 }
-select {
+.todolist select {
   border: none;
   text-align: right;
   margin: 0;
 }
-input[type="checkbox"] {
+.todolist input[type="checkbox"] {
   box-sizing: border-box;
   display: inline-block;
   vertical-align: text-top;
@@ -66,26 +66,26 @@ input[type="checkbox"] {
   margin-left: -38px;
   margin-right: 19px;
 }
-input[type="checkbox"]:checked {
+.todolist input[type="checkbox"]:checked {
   opacity: 0.3;
 }
-input[type="checkbox"]:checked::after {
+.todolist input[type="checkbox"]:checked::after {
   content: "√";
   font-size: 20px;
   position: relative;
   top: -9px;
 }
-input[type="checkbox"]:checked + label {
+.todolist input[type="checkbox"]:checked + label {
   opacity: 0.3;
   text-decoration: line-through;
 }
-button {
+.todolist button {
   border: 2px solid #000;
   border-radius: 4px;
   background: #fff;
   font-size: inherit;
 }
-button:hover {
+.todolist button:hover {
   background: #eee;
 }
 body {
@@ -96,6 +96,12 @@ body {
 .todolist {
   margin-top: 10px;
   min-height: 320px;
+}
+.admin {
+  max-width: 320px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
 }
 @media screen and (min-width: 321px) {
   body {
