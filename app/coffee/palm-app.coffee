@@ -1,22 +1,34 @@
 # Global app object 
 @app = window.app ? {}	
 
+KEY_RETURN = 13
+
 # Main controller for the page's functions
 class ZireController
 	constructor: () ->
+		@builder = new FixtureBuilder
+		@todos = new TodoList
+		@todos.items = @builder.randomList 4
+		@todos.render $ '#todos'
+		
 		@setupHandlers()
 	
 	setupHandlers: () =>
 		$on ($ '#new-task'), "click", @addNewTask
+		$on ($ 'body'), "keyup", @handleKeyup
 	
-	addNewTask: ->
-		todo = document.createElement "li"
-		todo.innerHTML = '<input id="todo-1542" type="checkbox" /><label>New todo</label>'
-		$label = $ 'label', todo
-		$label.contentEditable = yes
-		($ '.todolist ul').appendChild todo
+	handleKeyup: (event) =>
+		if event.keyCode is KEY_RETURN
+			if event.target.nodeName is "BODY" and event.altKey
+				event.preventDefault()
+				@addNewTask()
+	
+	addNewTask: =>
+		task = new Task
+		@todos.add task
+		
+		$label = $ "#todo-#{task.id} label"
 		selectContentEditable $label
-
 
 # Start everything when the page is ready
 $on window, "DOMContentLoaded", ->
@@ -24,3 +36,6 @@ $on window, "DOMContentLoaded", ->
 
 
 # @codekit-prepend "helpers.coffee"
+# @codekit-prepend "fixture-builder.coffee"
+# @codekit-prepend "task.coffee"
+# @codekit-prepend "todolist.coffee"

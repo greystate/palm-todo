@@ -9,6 +9,22 @@
 	],
 "creatorBuild": "25479",
 "files": {
+	"\/.gitignore": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/.gitignore",
+		"oF": 0
+		},
+	"\/app\/coffee\/fixture-builder.coffee": {
+		"ft": 32,
+		"ma": 0,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/public\/fixture-builder.js",
+		"oF": 0,
+		"oS": 0,
+		"sC": 0
+		},
 	"\/app\/coffee\/helpers.coffee": {
 		"ft": 32,
 		"ma": 0,
@@ -25,6 +41,26 @@
 		"mi": 0,
 		"oA": 0,
 		"oAP": "\/public\/palm-app.js",
+		"oF": 0,
+		"oS": 0,
+		"sC": 0
+		},
+	"\/app\/coffee\/task.coffee": {
+		"ft": 32,
+		"ma": 0,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/public\/task.js",
+		"oF": 0,
+		"oS": 0,
+		"sC": 0
+		},
+	"\/app\/coffee\/todolist.coffee": {
+		"ft": 32,
+		"ma": 0,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/public\/todolist.js",
 		"oF": 0,
 		"oS": 0,
 		"sC": 0
@@ -98,6 +134,98 @@
 		"oAP": "\/public\/_viewport.html",
 		"oF": 0
 		},
+	"\/docs\/docco.css": {
+		"aP": 0,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/docs\/docco.css",
+		"oF": 0,
+		"oS": 0
+		},
+	"\/docs\/helpers.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/docs\/helpers.html",
+		"oF": 0
+		},
+	"\/docs\/palm-app.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/docs\/palm-app.html",
+		"oF": 0
+		},
+	"\/docs\/public\/fonts\/aller-bold.eot": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/docs\/public\/fonts\/aller-bold.eot",
+		"oF": 0
+		},
+	"\/docs\/public\/fonts\/aller-bold.ttf": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/docs\/public\/fonts\/aller-bold.ttf",
+		"oF": 0
+		},
+	"\/docs\/public\/fonts\/aller-bold.woff": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/docs\/public\/fonts\/aller-bold.woff",
+		"oF": 0
+		},
+	"\/docs\/public\/fonts\/aller-light.eot": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/docs\/public\/fonts\/aller-light.eot",
+		"oF": 0
+		},
+	"\/docs\/public\/fonts\/aller-light.ttf": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/docs\/public\/fonts\/aller-light.ttf",
+		"oF": 0
+		},
+	"\/docs\/public\/fonts\/aller-light.woff": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/docs\/public\/fonts\/aller-light.woff",
+		"oF": 0
+		},
+	"\/docs\/public\/fonts\/roboto-black.eot": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/docs\/public\/fonts\/roboto-black.eot",
+		"oF": 0
+		},
+	"\/docs\/public\/fonts\/roboto-black.ttf": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/docs\/public\/fonts\/roboto-black.ttf",
+		"oF": 0
+		},
+	"\/docs\/public\/fonts\/roboto-black.woff": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/docs\/public\/fonts\/roboto-black.woff",
+		"oF": 0
+		},
+	"\/docs\/public\/stylesheets\/normalize.css": {
+		"aP": 0,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 2,
+		"oAP": "\/docs\/public\/stylesheets\/normalize.css",
+		"oF": 0,
+		"oS": 0
+		},
+	"\/docs\/todolist.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/docs\/todolist.html",
+		"oF": 0
+		},
 	"\/Palmtodo41.png": {
 		"ft": 32768,
 		"iS": 4417,
@@ -111,6 +239,15 @@
 		"oA": 0,
 		"oAP": "\/public\/index.html",
 		"oF": 0
+		},
+	"\/public\/palm-app.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/umbraco\/assets\/palm-app.min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
 		},
 	"\/public\/palm.css": {
 		"aP": 0,
