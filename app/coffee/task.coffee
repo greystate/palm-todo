@@ -1,7 +1,14 @@
 class Task
-
-	constructor: (@title = "New Todo", @priority = 1, @category = TodoList.DEFAULT_CATEGORY, @done = no) ->
-		@id = randomInteger 9999
+	DEFAULT_OPTIONS =
+		id: null
+		title: "New ToDo"
+		priority: 1
+		category: TodoList.DEFAULT_CATEGORY
+		done: no
+	
+	constructor: (options = DEFAULT_OPTIONS) ->
+		{ @id, @title, @priority, @category, @done } = options
+		@id = randomInteger(9999) if options.id is null
 
 	toggle: ->
 		@done = not @done

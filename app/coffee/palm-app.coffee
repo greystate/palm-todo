@@ -37,5 +37,5 @@ $on window, "DOMContentLoaded", ->
 
 # @codekit-prepend "helpers.coffee"
 # @codekit-prepend "fixture-builder.coffee"
-# @codekit-prepend "task.coffee"
 # @codekit-prepend "todolist.coffee"
+# @codekit-prepend "task.coffee"

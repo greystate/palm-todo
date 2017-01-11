@@ -3,7 +3,8 @@ class FixtureBuilder
 
 	# Returns a random `Task`
 	randomTask: ->
-		new Task randomSentence()
+		new Task
+			title: randomSentence()
 	
 	# Returns a list of `count` random tasks
 	randomList: (count = 2) ->
